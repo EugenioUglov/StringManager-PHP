@@ -3,7 +3,7 @@ It makes easy to use string functions in php.<br>
 
 <h2><b>How to use</b></h2>
 Include file<br>
-```require_once('stringmanager.php');```
+require_once('stringmanager.php');
 Create object<br>
 $string_manager = new StringManager();<br>
 Use<br>
