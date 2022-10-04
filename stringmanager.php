@@ -39,6 +39,17 @@ class StringManager {
 
         return substr($input_object->string_subject, $input_object->index_from, $input_object->index_to);
     }
+	
+    function get_index_substring($input_object) {
+        // Keys for $input_object are string_subject, string_to_search.
+
+        if (isset($input_object->string_subject) == false ||
+            isset($input_object->string_to_search) == false) {
+                throw new Exception('Error! In function get_substring($input_object), $input_object contains the following keys string_subject, string_to_search');
+        }
+
+        return strpos($input_object->string_subject, $input_object->string_to_search);
+    }
 
     function get_without_spaces($input_object) {
         // Keys for $input_object are string_subject.
@@ -60,5 +71,35 @@ class StringManager {
         }
 
         return strlen($input_object->string_subject);
+    }
+	
+    function get_count_of_words($input_object) {
+        // Keys for $input_object are string_subject.
+
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
+        }
+
+        return str_word_count($input_object->string_subject);
+    }
+	
+    function get_reversed_string($input_object) {
+        // Keys for $input_object are string_subject.
+
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
+        }
+
+        return strrev($input_object->string_subject);
+    }
+	
+    function get_reversed_string($input_object) {
+        // Keys for $input_object are string_subject.
+
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
+        }
+
+        return strrev($input_object->string_subject);
     }
 }
