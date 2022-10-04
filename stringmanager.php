@@ -1,7 +1,7 @@
 <?php
 class StringManager {
     function get_last_number_from_string($input_object) {
-        // Parameters are string_to_take_number.
+        // Keys for $input_object are string_to_take_number.
 
         if (isset($input_object->string_to_take_number) == false) {
             throw new Exception('Error! In function get_last_number_from_string($input_object), $input_object contains the following keys string_to_take_number');
@@ -14,7 +14,7 @@ class StringManager {
     }
 
     function get_replaced_string($input_object) {
-        // Parameters are string_subject, string_to_search, string_to_replace_searched.
+        // Keys for $input_object are string_subject, string_to_search, string_to_replace_searched.
 
         if (isset($input_object->string_subject) == false ||
             isset($input_object->string_to_search) == false ||
