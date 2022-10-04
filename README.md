@@ -1,5 +1,6 @@
 # StringManager
 It makes easy to use string functions in php.<br>
+Each function has been created with one parameter as an object. Inside funcitons are comments with keys of object that can be used for declaring input values.
 
 <h2><b>How to use</b></h2>
 Include file<br>
