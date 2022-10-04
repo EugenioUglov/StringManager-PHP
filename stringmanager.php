@@ -92,14 +92,4 @@ class StringManager {
 
         return strrev($input_object->string_subject);
     }
-	
-    function get_reversed_string($input_object) {
-        // Keys for $input_object are string_subject.
-
-        if (isset($input_object->string_subject) == false) {
-            throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
-        }
-
-        return strrev($input_object->string_subject);
-    }
 }
