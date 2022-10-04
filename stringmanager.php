@@ -41,6 +41,8 @@ class StringManager {
     }
 
     function get_without_spaces($input_object) {
+        // Keys for $input_object are string_subject.
+
         if (isset($input_object->string_subject) == false) {
             throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
         }
@@ -48,5 +50,15 @@ class StringManager {
 		$string_without_spaces = $this->get_replaced_string((object)array('string_subject' => $input_object->string_subject, 'string_to_search' => ' ', 'string_to_replace_searched' => ''));
 
         return $string_without_spaces;
+    }
+
+    function get_length($input_object) {
+        // Keys for $input_object are string_subject.
+
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_without_spaces($input_object), $input_object contains the following keys string_subject');
+        }
+
+        return strlen($input_object->string_subject);
     }
 }
