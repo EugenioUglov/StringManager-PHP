@@ -112,7 +112,6 @@ class StringManager {
 	
     function is_exists($input_object) {
         // Required keys for $input_object are string_subject, string_to_search.
-        // Other keys for $input_object are is_case_sensative
 
         if (isset($input_object->string_subject) == false || 
             isset($input_object->string_to_search) == false) {
@@ -126,7 +125,6 @@ class StringManager {
 	
      function get_count_matches($input_object) {
         // Required keys for $input_object are string_subject, string_to_search.
-        // Other keys for $input_object are is_case_sensative
 
         if (isset($input_object->string_subject) == false || 
             isset($input_object->string_to_search) == false) {
@@ -140,7 +138,7 @@ class StringManager {
 
     function get_replaced_string_advanced($input_object) {
 	// Required keys for $input_object are string_subject, string_to_search, string_to_replace_searched.
-        // Other keys for $input_object are is_case_sensative
+        
 
         if (isset($input_object->string_subject) == false || 
             isset($input_object->string_to_search) == false ||
@@ -155,6 +153,7 @@ class StringManager {
 
     function get_regular_expresion_string($input_object) {
 	// Required keys for $input_object are string_to_search.
+        // Other keys for $input_object are is_case_sensative.
 	    
 	if (isset($input_object->string_to_search) == false) {
             throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_to_search');
