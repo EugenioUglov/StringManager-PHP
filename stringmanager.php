@@ -1,13 +1,13 @@
 <?php
 class StringManager {
     function get_last_number_from_string($input_object) {
-        // Required keys for $input_object are string_to_take_number.
+        // Required keys for $input_object are string_subject.
 
-        if (isset($input_object->string_to_take_number) == false) {
-            throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_to_take_number');
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject');
         }
 
-        if (preg_match_all('/\d+/', $input_string, $numbers))
+        if (preg_match_all('/\d+/', $input_object->string_subject, $numbers))
             $last_number = end($numbers[0]);
 
         return $last_number;
