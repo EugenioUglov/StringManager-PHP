@@ -109,4 +109,68 @@ class StringManager {
             return strtoupper($input_object->first_string) == strtoupper($input_object->second_string);
         }
     }
+	
+    function is_exists($input_object) {
+        // Required keys for $input_object are string_subject, string_to_search.
+        // Other keys for $input_object are is_case_sensative
+
+        if (isset($input_object->string_subject) == false || 
+            isset($input_object->string_to_search) == false) {
+            	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search');
+        }
+
+     	$pattern = get_regular_expresion_string($input_object);
+
+        return preg_match($pattern, $input_object->string_subject); 
+    }
+	
+     function get_count_matches($input_object) {
+        // Required keys for $input_object are string_subject, string_to_search.
+        // Other keys for $input_object are is_case_sensative
+
+        if (isset($input_object->string_subject) == false || 
+            isset($input_object->string_to_search) == false) {
+            	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search');
+        }
+
+     	$pattern = get_regular_expresion_string($input_object);
+
+	return preg_match_all($pattern, $input_object->string_subject);
+    }
+
+    function get_replaced_string_advanced($input_object) {
+	// Required keys for $input_object are string_subject, string_to_search, string_to_replace_searched.
+        // Other keys for $input_object are is_case_sensative
+
+        if (isset($input_object->string_subject) == false || 
+            isset($input_object->string_to_search) == false ||
+	    isset($input_object->string_to_replace_searched) == false) {
+            	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search, string_to_replace_searched');
+        }
+
+     	$pattern = get_regular_expresion_string($input_object);
+
+    	return preg_replace($pattern, $input_object->string_to_replace_searched, $input_object->string_subject);
+    }
+
+    function get_regular_expresion_string($input_object) {
+	// Required keys for $input_object are string_to_search.
+	    
+	if (isset($input_object->string_to_search) == false) {
+            throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_to_search');
+        }
+
+        $modifiers = '';
+        $delimeter = '/';
+	    
+        if (isset($input_object->is_case_sensative)) {
+            if ($input_object->is_case_sensative == false) {
+            	$modifiers .= 'i';
+            }
+        }
+
+        $pattern = $delimeter.$input_object->string_to_search.$delimeter.$modifiers;
+	    
+	return $pattern;
+    }
 }
