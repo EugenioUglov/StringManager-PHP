@@ -172,4 +172,25 @@ class StringManager {
 	    
 	return $pattern;
     }
+	
+    function get_regular_expresion_search_pattern_repeating_string($input_object) {
+         // Required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats and max_count_repeats.
+	    
+	 if (isset($input_object->string_must_be_repeated) == false) {
+            	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats and max_count_repeats');
+         }
+	 else if (isset($input_object->count_repeats) == false || (isset($input_object->min_count_repeats) == false || isset($input_object->max_count_repeats) == false))) {
+		throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats and max_count_repeats');
+	 }
+	    
+	 if (isset($input_object->count_repeats)) {
+	 	return '('.$input_object->string_must_be_repeated.'){'.$input_object->count_repeats.'}';
+	 }
+	 else if (isset($input_object->min_count_repeats) && isset($input_object->max_count_repeats)) {
+	 	return '('.$input_object->string_must_be_repeated.'){'.$input_object->min_count_repeats.','.$input_object->max_count_repeats.'}';
+	 }
+	 else {
+		throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats and max_count_repeats');
+	 }
+    }
 }
