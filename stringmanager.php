@@ -118,7 +118,7 @@ class StringManager {
             	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search');
         }
 
-     	$pattern = get_regular_expresion_string($input_object);
+     	$pattern = get_regular_expression_string($input_object);
 
         return preg_match($pattern, $input_object->string_subject); 
     }
@@ -131,7 +131,7 @@ class StringManager {
             	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search');
         }
 
-     	$pattern = get_regular_expresion_string($input_object);
+     	$pattern = get_regular_expression_string($input_object);
 
 	return preg_match_all($pattern, $input_object->string_subject);
     }
@@ -146,12 +146,12 @@ class StringManager {
             	throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject, string_to_search, string_to_replace_searched');
         }
 
-     	$pattern = get_regular_expresion_string($input_object);
+     	$pattern = get_regular_expression_string($input_object);
 
     	return preg_replace($pattern, $input_object->string_to_replace_searched, $input_object->string_subject);
     }
 
-    function get_regular_expresion_string($input_object) {
+    function get_regular_expression_string($input_object) {
 	// Required keys for $input_object are string_to_search.
         // Other keys for $input_object are is_case_sensative.
 	    
@@ -173,7 +173,7 @@ class StringManager {
 	return $pattern;
     }
 	
-    function get_regular_expresion_search_pattern_repeating_string($input_object) {
+    function get_regular_expression_search_pattern_repeating_string($input_object) {
          // Required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats and max_count_repeats.
 	    
 	 if (isset($input_object->string_must_be_repeated) == false) {
