@@ -153,7 +153,7 @@ class StringManager {
 
     function get_regular_expression_string($input_object) {
 	// Required keys for $input_object are string_to_search.
-        // Other keys for $input_object are is_case_sensative.
+        // Optional keys for $input_object are is_case_sensative.
 	    
 	if (isset($input_object->string_to_search) == false) {
             throw new Exception('Error! In function get_regular_expression_string($input_object), required keys for $input_object are string_to_search');
@@ -175,7 +175,7 @@ class StringManager {
 	
     function get_regular_expression_search_pattern_repeating_string($input_object) {
          // Required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats.
-	 // Other keys max_count_repeats
+	 // Optional keys max_count_repeats
 	    
 	 if (isset($input_object->string_must_be_repeated) == false) {
             	throw new Exception('Error! In function get_regular_expression_search_pattern_repeating_string($input_object), required keys for $input_object are string_must_be_repeated, count_repeats or min_count_repeats');
