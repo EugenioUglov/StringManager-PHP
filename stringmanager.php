@@ -12,6 +12,18 @@ class StringManager {
 
         return $last_number;
     }
+	
+    function get_numbers_from_string($input_object) {
+        // Required keys for $input_object are string_subject.
+
+        if (isset($input_object->string_subject) == false) {
+            throw new Exception('Error! In function get_last_number_from_string($input_object), required keys for $input_object are string_subject');
+        }
+
+        $numbers_from_string = preg_replace('/[^0-9]/', '', $input_object->string_subject);
+        
+        return $numbers_from_string;
+    }
 
     function get_replaced_string($input_object) {
         // Required keys for $input_object are string_subject, string_to_search, string_to_replace_searched.
