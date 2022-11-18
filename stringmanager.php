@@ -54,13 +54,19 @@ class StringManager {
 	
     function get_index_substring($input_object) {
         // Required keys for $input_object are string_subject, string_to_search.
+	// Required keys for $input_object are start_from_index.
 
+	$start_from_index = 0;
+	    
         if (isset($input_object->string_subject) == false ||
             isset($input_object->string_to_search) == false) {
                 throw new Exception('Error! In function get_index_substring($input_object), required keys for $input_object are string_subject, string_to_search');
         }
+	if (isset($input_object->start_from_index)) {
+	    $start_from_index = $input_object->start_from_index;
+	}
 
-        return strpos($input_object->string_subject, $input_object->string_to_search);
+        return strpos($input_object->string_subject, $input_object->string_to_search, $start_from_index);
     }
 
     function get_without_spaces($input_object) {
